@@ -65,8 +65,8 @@ class LogStash::Outputs::Lumberjack < LogStash::Outputs::Base
       @client.write(events)
     rescue Exception => e
       @logger.error("Client write error, trying connect", :e => e, :backtrace => e.backtrace)
-      sleep(RECONNECT_BACKOFF_SLEEP)
-      connect
+#      sleep(RECONNECT_BACKOFF_SLEEP)
+#      connect
 #      retry
     end # begin
   end
