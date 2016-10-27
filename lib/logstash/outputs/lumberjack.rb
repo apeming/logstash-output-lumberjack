@@ -67,7 +67,7 @@ class LogStash::Outputs::Lumberjack < LogStash::Outputs::Base
       @logger.error("Client write error, trying connect", :e => e, :backtrace => e.backtrace)
       sleep(RECONNECT_BACKOFF_SLEEP)
       connect
-      retry
+#      retry
     end # begin
   end
 
@@ -88,8 +88,8 @@ class LogStash::Outputs::Lumberjack < LogStash::Outputs::Base
     rescue Exception => e
       @logger.error("All hosts unavailable, sleeping", :hosts => ips.uniq, :e => e,
         :backtrace => e.backtrace)
-      sleep(10)
-      retry
+#      sleep(10)
+#      retry
     end
   end
 end
